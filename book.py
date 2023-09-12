@@ -1,6 +1,5 @@
 import json
-filename = "./code.json"
-#filename = "./data.json"
+filename = "./data.json"
 
 # Colourise command line output
 class foreground:

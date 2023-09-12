@@ -1,5 +1,7 @@
+import os
 import json
-filename = "./data.json"
+
+
 
 # Colourise command line output
 class foreground:
@@ -16,13 +18,23 @@ class foreground:
 
 
 
+dbFile = input(foreground.pink + "Choose an existing Database file or create a new one:\n")
+filename = dbFile + ".json"
+
+if not os.path.exists(filename):
+    with open(filename, "w") as f:
+        json.dump([], f)
+        print(foreground.lightgreen + f"{filename} has been created as your new Database file name.")
+
+
+
 
 
 def print_schema(entry, i):
   info1 = entry["info1"]
   info2 = entry["info2"]
   info3 = entry["info3"]
-  print(foreground.yellow + f"id: {i} : {info1} : {info2} : {info3}")
+  print(foreground.lightgreen + f"id: {i} : {info1} : {info2} : {info3}")
 
 
 

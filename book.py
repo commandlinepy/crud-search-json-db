@@ -29,8 +29,9 @@ def print_schema(entry, i):
 
 
 def show_menu():
-  # print("\nSELECT A NUMBER OPTION BELOW AND PRESS ENTER:")
-  print(foreground.white + "\n(1)VIEW, (2)SEARCH, (3)ADD, (4)EDIT, (5)DELETE, (0)EXIT")
+  print(foreground.yellow + "\nSELECT A NUMBER OPTION BELOW AND PRESS ENTER:")
+  
+  print(foreground.lightcyan + "\n(1)VIEW " + foreground.pink + "(2)SEARCH " + foreground.lightblue + "(3)ADD " + foreground.lightgreen + "(4)EDIT " + foreground.lightred + "(5)DELETE " + foreground.white + "(0)EXIT")
 
 
 

@@ -112,7 +112,7 @@ def edit_data():
         info1 = info1.lower()
         info2 = input(f"New info2 (current: {entry['info2']}): ").strip().lower() or entry['info2']
         info2 = info2.lower()
-        info3 = input("New info3: ")
+        info3 = input(f"New info3 (current: {entry['info3']}): ").strip().lower() or entry['info3']
         info3 = info3.lower()
         new_data.append({"info1": info1, "info2": info2, "info3": info3})
         i +=1

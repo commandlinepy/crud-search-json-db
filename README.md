@@ -6,7 +6,18 @@ You will be asked to create a new Database file, for example: `sales` or you can
 
 All new Database files will be initialised using []
 
-If you choose to create your own json file outside of the program it must be intialised with outer [] or include at least one set of data before running the program.
+If you choose to create your own json file outside of the program it must be intialised with outer [] or include at least one set of correctly formatted data before running the program.
+
+Format:
+```
+[
+	{
+		"info1": "test",
+		"info2": "one",
+		"info3": "two"
+	}
+]
+```
 
 
 ### todo

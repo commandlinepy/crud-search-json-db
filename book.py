@@ -109,9 +109,9 @@ def edit_data():
     for entry in temp:
       if i == int(edit_option):
         print_schema(entry, i)
-        info1 = input("New info1: ")
+        info1 = input(f"New info1 (current: {entry['info1']}): ").strip().lower() or entry['info1']
         info1 = info1.lower()
-        info2 = input("New info2: ")
+        info2 = input(f"New info2 (current: {entry['info2']}): ").strip().lower() or entry['info2']
         info2 = info2.lower()
         info3 = input("New info3: ")
         info3 = info3.lower()

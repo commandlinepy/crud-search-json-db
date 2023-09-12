@@ -1,13 +1,15 @@
-`In the command line, RUN: python book.py`
+## Instructions
 
-`You will be asked to create a new Database file or select an existing one`
+In the command line, RUN: `python book.py`
 
-`A new Database filename will be initialised using []`
+You will be asked to create a new Database file or select an existing one
 
-`If you choose to create your own json file outside of the program it must be intialised with outer [] or include at least one set of data before running the program`
+A new Database filename will be initialised using []
+
+If you choose to create your own json file outside of the program it must be intialised with outer [] or include at least one set of data before running the program
 
 
-# todo
+### todo
 
 - close file
 

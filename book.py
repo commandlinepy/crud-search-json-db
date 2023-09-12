@@ -24,7 +24,7 @@ filename = dbFile + ".json"
 if not os.path.exists(filename):
     with open(filename, "w") as f:
         json.dump([], f)
-        print(foreground.lightgreen + f"{filename} has been created as your new Database file name.")
+        print(foreground.lightgreen + f"{filename} has been created as your new Database file.")
 
 
 

@@ -4,15 +4,9 @@
 
 # todo
 
-```
-close file
-```
+- close file
 
-``
+- add "no items in db" if empty
 
+- db data items: formatting
 
-add "no items in db" if empty
-```
-```
-db data items: formatting
-```

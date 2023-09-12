@@ -1,3 +1,0 @@
-1. Create a blank data.json file and add an empty list using the following syntax. 
-[] (Empty square brackets)
-2. Run book.py

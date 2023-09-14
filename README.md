@@ -26,7 +26,5 @@ Format:
 
 - close file
 
-- add "no items in db" if empty
-
 - db data items: improve formatting
 

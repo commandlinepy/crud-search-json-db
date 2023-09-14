@@ -43,7 +43,7 @@ def print_schema(entry, i):
 def show_menu():
   print(foreground.yellow + "\nSELECT A NUMBER OPTION BELOW AND THEN PRESS ENTER:")
   
-  print(foreground.cyan + "(1)VIEW " + foreground.pink + "(2)SEARCH " + foreground.purple + "(3)ADD " + foreground.green + "(4)EDIT " + foreground.red + "(5)DELETE " + foreground.white + "(0)EXIT")
+  print(foreground.cyan + "VIEW[1] " + foreground.pink + "SEARCH[2] " + foreground.purple + "ADD[3] " + foreground.green + "EDIT[4] " + foreground.red + "DELETE[5] " + foreground.white + "EXIT[0]")
 
 
 

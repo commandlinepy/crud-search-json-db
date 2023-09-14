@@ -1,2 +1,5 @@
 .DS_Store
 *.json
+/db-files/*
+db-files/*
+db-files/

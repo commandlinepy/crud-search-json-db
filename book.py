@@ -19,7 +19,7 @@ class foreground:
 
 
 dbFile = input(foreground.pink + "Choose an existing Database file or create a new one:\n")
-filename = dbFile + ".json"
+filename = "./db-files/" + dbFile + ".json"
 
 if not os.path.exists(filename):
     with open(filename, "w") as f:

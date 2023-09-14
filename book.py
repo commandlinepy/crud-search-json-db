@@ -9,10 +9,10 @@ class foreground:
     black='\033[30m'
     yellow='\033[93m'
     pink='\033[95m'
-    lightred='\033[91m'
-    lightgreen='\033[92m'
-    lightcyan='\033[96m'
-    lightblue='\033[94m'
+    red='\033[91m'
+    green='\033[92m'
+    cyan='\033[96m'
+    purple='\033[94m'
     lightgrey='\033[37m'
     darkgrey='\033[90m'
 
@@ -24,7 +24,7 @@ filename = "./db-files/" + dbFile + ".json"
 if not os.path.exists(filename):
     with open(filename, "w") as f:
         json.dump([], f)
-        print(foreground.lightgreen + f"{filename} has been created as your new Database file.")
+        print(foreground.green + f"{filename} has been created as your new Database file.")
 
 
 
@@ -34,16 +34,16 @@ def print_schema(entry, i):
   info1 = entry["info1"]
   info2 = entry["info2"]
   info3 = entry["info3"]
-  print(foreground.lightgreen + f"id: {i} : {info1} : {info2} : {info3}")
+  print(foreground.purple + f"id {i}: " + foreground.green + f"{info1}" + foreground.white + " | " + foreground.pink + f"{info2}" + foreground.white + " | " + foreground.cyan + f"{info3}")
 
 
 
 
 
 def show_menu():
-  print(foreground.yellow + "\nSELECT A NUMBER OPTION BELOW AND PRESS ENTER:")
+  print(foreground.yellow + "\nSELECT A NUMBER OPTION BELOW AND THEN PRESS ENTER:")
   
-  print(foreground.lightcyan + "\n(1)VIEW " + foreground.pink + "(2)SEARCH " + foreground.lightblue + "(3)ADD " + foreground.lightgreen + "(4)EDIT " + foreground.lightred + "(5)DELETE " + foreground.white + "(0)EXIT")
+  print(foreground.cyan + "(1)VIEW " + foreground.pink + "(2)SEARCH " + foreground.purple + "(3)ADD " + foreground.green + "(4)EDIT " + foreground.red + "(5)DELETE " + foreground.white + "(0)EXIT")
 
 
 
@@ -62,7 +62,7 @@ def view_data():
 
 
 def search_data():
-    search_word = input("Enter search word:\n\n" + foreground.lightgreen).lower()
+    search_word = input("Enter search word:\n\n" + foreground.green).lower()
     with open(filename, "r") as f:
         temp = json.load(f)
 
@@ -74,25 +74,25 @@ def search_data():
         info3 = entry["info3"]
 
         if search_word in info1 or search_word in info2 or search_word in info3:
-            print(foreground.lightgreen + f"id: {i} : {info1} : {info2} : {info3}")
+            print(foreground.green + f"id: {i} : {info1} : {info2} : {info3}")
             found_results = True
 
     if not found_results:
-        print(foreground.lightred + "No results found.")
+        print(foreground.red + "No results found.")
 
 
 
 
   
 def delete_data():
-  view_data()
+  #view_data()
   new_data = []
   with open(filename, "r") as f:
     temp = json.load(f)
     data_length = len(temp) -1
-  delete_option = input(foreground.lightred + f"Select ID to delete from 0-{data_length}\n")
+  delete_option = input(foreground.green + "HINT: " + foreground.pink + "If you don't know the id, try SEARCH before using this DELETE option.\n" + foreground.cyan + f"\nSelect the ID number to delete from 0-{data_length} (or press the Enter key followed by N to abort)\n")
   i = 0
-  confirm = input(foreground.lightred + "Are you sure? (Y/N)")
+  confirm = input(foreground.red + "Are you sure? (Y/N) ")
   if confirm == "Y":
     for entry in temp:
       if i == int(delete_option):
@@ -103,7 +103,7 @@ def delete_data():
         i +=1
     with open(filename, "w") as f:
       json.dump(new_data, f, indent=4)
-    print(foreground.lightgreen + "Deleted successfully")
+    print(foreground.green + "Deleted successfully")
   else:
       print(foreground.yellow + "No problem. Try another option:")
 
@@ -112,15 +112,15 @@ def delete_data():
 
 
 def edit_data():
-  view_data()
+  #view_data()
   new_data = []
   with open(filename, "r") as f:
     temp = json.load(f)
     data_length = len(temp) -1
 
-  edit_option = input(foreground.yellow + f"Select ID to edit from 0-{data_length}\n")
+  edit_option = input(foreground.green + "HINT: " + foreground.pink + "If you don't know the id, try SEARCH before using this EDIT option.\n" + foreground.cyan + f"\nSelect the ID number to edit from 0-{data_length} (or press the Enter key followed by N to abort)\n")
   i = 0
-  confirm = input(foreground.lightred + "Do you wish to proceed? (Y/N)")
+  confirm = input(foreground.red + "Do you wish to proceed? (Y/N) ")
   if confirm == "Y":
     for entry in temp:
       if i == int(edit_option):
@@ -180,4 +180,4 @@ while True:
   elif choice == "0":
     break
   else:
-    print(foreground.lightred + "Incorrect option, please try again.")
+    print(foreground.red + "Incorrect option, please try again.")

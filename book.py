@@ -62,20 +62,24 @@ def view_data():
 
 
 def search_data():
-  
-  search_word = input("Enter search word: \n\n" + foreground.lightgreen).lower()
-  with open(filename, "r") as f:
-    temp = json.load(f)
-  
-  for i, entry in enumerate(temp):
-    info1 = entry["info1"]
-    info2 = entry["info2"]
-    info3 = entry["info3"]
+    search_word = input("Enter search word:\n\n" + foreground.lightgreen).lower()
+    with open(filename, "r") as f:
+        temp = json.load(f)
 
-    if search_word in entry["info1"] or search_word in entry["info2"] or search_word in entry["info3"]:
-        print(foreground.lightgreen + f"id: {i} : {info1} : {info2} : {info3}")
-  # else: 
-  #   return print(foreground.lightred + "No entry found")
+    found_results = False  # A flag to check if any results were found
+
+    for i, entry in enumerate(temp):
+        info1 = entry["info1"]
+        info2 = entry["info2"]
+        info3 = entry["info3"]
+
+        if search_word in info1 or search_word in info2 or search_word in info3:
+            print(foreground.lightgreen + f"id: {i} : {info1} : {info2} : {info3}")
+            found_results = True
+
+    if not found_results:
+        print(foreground.lightred + "No results found.")
+
 
 
 

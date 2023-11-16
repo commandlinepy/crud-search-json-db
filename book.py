@@ -18,7 +18,8 @@ class foreground:
 
 
 
-dbFile = input(foreground.pink + "Choose an existing Database file or create a new one:\n")
+
+dbFile = input(foreground.pink + "\nChoose an existing Database file or create a new one:\n")
 filename = "./db-files/" + dbFile + ".json"
 
 if not os.path.exists(filename):
@@ -34,7 +35,7 @@ def print_schema(entry, i):
   info1 = entry["info1"]
   info2 = entry["info2"]
   info3 = entry["info3"]
-  print(foreground.purple + f"id {i}: " + foreground.green + f"{info1}" + foreground.white + " | " + foreground.pink + f"{info2}" + foreground.white + " | " + foreground.cyan + f"{info3}")
+  print(foreground.purple + f"id {i}: \n" + foreground.green + f"{info1}\n\n" + foreground.white + foreground.pink + f"{info2}\n\n" + foreground.white + foreground.cyan + f"{info3}\n\n")
 
 
 
@@ -74,7 +75,7 @@ def search_data():
         info3 = entry["info3"]
 
         if search_word in info1 or search_word in info2 or search_word in info3:
-            print(foreground.green + f"id: {i} : {info1} : {info2} : {info3}")
+            print(foreground.purple + f"id {i}: \n" + foreground.green + f"{info1}\n\n" + foreground.white + foreground.pink + f"{info2}\n\n" + foreground.white + foreground.cyan + f"{info3}")
             found_results = True
 
     if not found_results:

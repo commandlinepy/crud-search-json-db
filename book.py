@@ -4,6 +4,16 @@ import json
 
 
 # Colourise command line output
+class background:
+    Black= '\033[48;5;0m'
+    Red= '\033[48;5;1m'
+    Green= '\033[48;5;2m'
+    Yellow= '\033[48;5;3m'
+    Blue= '\033[48;5;4m'
+    Magenta= '\033[48;5;5m'
+    Cyan= '\033[48;5;6m'
+    White= '\033[48;5;7m'
+
 class foreground:
     white='\033[39m'
     black='\033[30m'
@@ -16,10 +26,11 @@ class foreground:
     lightgrey='\033[37m'
     darkgrey='\033[90m'
 
+reset_color="\033[0m"
 
 
 
-dbFile = input(foreground.pink + "\nChoose an existing Database file or create a new one:\n")
+dbFile = input("\n" + f"{background.Red}Choose an existing Database file or create a new one: {reset_color}\n")
 filename = "./db-files/" + dbFile + ".json"
 
 if not os.path.exists(filename):
@@ -35,7 +46,7 @@ def print_schema(entry, i):
   info1 = entry["info1"]
   info2 = entry["info2"]
   info3 = entry["info3"]
-  print(foreground.purple + f"id {i}: \n" + foreground.green + f"{info1}\n\n" + foreground.white + foreground.pink + f"{info2}\n\n" + foreground.white + foreground.cyan + f"{info3}\n\n")
+  print(f"{background.Red}{foreground.purple}id {i}:{reset_color}\n\n{foreground.green}{info1}\n\n{foreground.pink}{info2}\n\n{foreground.cyan}{info3}\n")
 
 
 
@@ -75,7 +86,7 @@ def search_data():
         info3 = entry["info3"]
 
         if search_word in info1 or search_word in info2 or search_word in info3:
-            print(foreground.purple + f"id {i}: \n" + foreground.green + f"{info1}\n\n" + foreground.white + foreground.pink + f"{info2}\n\n" + foreground.white + foreground.cyan + f"{info3}")
+            print(f"\n{background.Red}{foreground.purple}id {i}:{reset_color}\n\n{foreground.green}{info1}\n\n{foreground.pink}{info2}\n\n{foreground.cyan}{info3}\n")
             found_results = True
 
     if not found_results:
@@ -91,9 +102,15 @@ def delete_data():
   with open(filename, "r") as f:
     temp = json.load(f)
     data_length = len(temp) -1
-  delete_option = input(foreground.green + "HINT: " + foreground.pink + "If you don't know the id, try SEARCH before using this DELETE option.\n" + foreground.cyan + f"\nSelect the ID number to delete from 0-{data_length} (or press the Enter key followed by N to abort)\n")
+
+  delete_option = input(f"{foreground.green}HINT:{foreground.pink} If you don't know the id, try SEARCH before using this DELETE option.\n {foreground.cyan} \nSelect the ID number to delete from 0-{data_length} (or press the ENTER key to ABORT)\n")
+  
+  if not delete_option:
+    return
+  
   i = 0
-  confirm = input(foreground.red + "Are you sure? (Y/N) ")
+  confirm = input(f"{background.Red}Press Y to DELETE or N to Abort {reset_color}\n")
+  
   if confirm == "Y":
     for entry in temp:
       if i == int(delete_option):
@@ -104,9 +121,9 @@ def delete_data():
         i +=1
     with open(filename, "w") as f:
       json.dump(new_data, f, indent=4)
-    print(foreground.green + "Deleted successfully")
+    print(f"{foreground.green}Deleted successfully")
   else:
-      print(foreground.yellow + "No problem. Try another option:")
+      print(f"{foreground.yellow}No problem. Try another option:")
 
 
 

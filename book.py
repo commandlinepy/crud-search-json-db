@@ -30,7 +30,7 @@ reset_color="\033[0m"
 
 
 
-dbFile = input("\n" + f"{background.Red}Choose an existing Database file or create a new one: {reset_color}\n")
+dbFile = input("\n" + f"{background.Green}{foreground.black}Choose an existing Database file or create a new one: {reset_color}{foreground.cyan}(.json will be applied) {reset_color}\n")
 filename = "./db-files/" + dbFile + ".json"
 
 if not os.path.exists(filename):
@@ -46,7 +46,7 @@ def print_schema(entry, i):
   info1 = entry["info1"]
   info2 = entry["info2"]
   info3 = entry["info3"]
-  print(f"{background.Red}{foreground.purple}id {i}:{reset_color}\n\n{foreground.green}{info1}\n\n{foreground.pink}{info2}\n\n{foreground.cyan}{info3}\n")
+  print(f"{foreground.red}{foreground.purple}id {i}:{reset_color} | {foreground.green}{info1} | {foreground.pink}{info2} | {foreground.cyan}{info3}")
 
 
 
